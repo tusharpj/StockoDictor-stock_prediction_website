@@ -1,0 +1,209 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f4f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Navbar Styling */
+.navbar {
+  width: 100%;
+  background-color: #007bff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  animation: slideInNavbar 1s ease-out forwards;
+}
+
+/* Logo Section */
+.navbar .logo-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar .logo {
+  width: 40px;
+  height: auto;
+  border-radius: 20px;
+  animation: rotateLogo 2s linear infinite; /* Continuous logo rotation */
+}
+
+.navbar .site-name {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  animation: slideInFromLeft 1s ease-out forwards;
+}
+
+.navbar #user-email {
+  color: #fff;
+  font-size: 18px;
+  font-weight: normal;
+  animation: slideInFromLeft 1s ease-out 0.5s forwards; /* Delay animation */
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  animation: fadeIn 1s ease-in-out 1s forwards; /* Fade-in effect with delay */
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover {
+  transform: scale(1.1); /* Hover effect with scaling */
+  color: #ffdd57; /* Change text color on hover */
+}
+
+/* Logout Button Styling */
+.navbar button {
+  background-color: #ff4d4d;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar button:hover {
+  background-color: #ff3333;
+  transform: translateY(-3px); /* Button hover effect with upward movement */
+}
+
+/* Header Styling */
+header {
+  margin-top: 100px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 1.5s forwards;
+}
+
+header h1 {
+  font-size: 36px;
+  color: #333;
+  font-weight: bold;
+  animation: slideInFromBottom 1s ease-out forwards;
+}
+
+/* Animations */
+
+/* Navbar slide-in effect */
+@keyframes slideInNavbar {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Logo rotation animation */
+@keyframes rotateLogo {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Slide-in animation for site name and user email */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Slide-in animation for header */
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .nav-links a {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .navbar button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+}

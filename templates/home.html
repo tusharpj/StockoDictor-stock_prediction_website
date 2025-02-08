@@ -1,0 +1,1172 @@
+<!-- <!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Home</title>
+    
+        <style>
+            /* Reset some default styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            /* Body Styling */
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #a9cff5;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(135deg, #5f90c2, #b8d5ff);
+                min-height: 100vh;
+                padding: 20px;
+            }
+    
+            /* Navbar Styling */
+            .navbar {
+                width: 100%;
+                background-color: #007bff;
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 10;
+                animation: slideInNavbar 1s ease-out forwards;
+            }
+    
+            /* Logo Section */
+            .navbar .logo-section {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-left: 15px;
+            } 
+    
+            .navbar .logo {
+                width: 60px;
+                height: auto;
+                border-radius: 40px;
+                animation: rotateLogo 2s linear infinite; /* Continuous logo rotation */
+            }
+    
+            .navbar .site-name {
+                color: #fff;
+                font-size: 24px;
+                font-weight: bold;
+                text-transform: uppercase;
+                animation: slideInFromLeft 1s ease-out forwards;
+            }
+            
+            .navbar #user-email {
+                color: #fff;
+                font-size: 18px;
+                font-weight: normal;
+                animation: slideInFromLeft 1s ease-out 0.5s forwards; /* Delay animation */
+            }
+            
+            /* Navigation Links */
+            .nav-links {
+                display: flex;
+                gap: 20px;
+                border-radius: 15px;
+                padding: 10px;
+                align-items: center;
+                background-color: #f0f4f8;
+                animation: fadeIn 1s ease-in-out 1s forwards; /* Fade-in effect with delay */
+            }
+            
+            .nav-links a {
+                color: #008bfd;
+                background-color: #f0f4f8;
+                text-decoration: none;
+                font-size: 16px;
+                padding: 10px;
+                transition: transform 0.3s ease, color 0.3s ease;
+            }
+            
+            .nav-links a:hover {
+                transform: scale(1.1); /* Hover effect with scaling */
+                color: #ffcc00; /* Change text color on hover */
+            }
+            
+            /* Logout Button Styling */
+            .navbar button {
+                background-color: #ff4d4d;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                background: linear-gradient(135deg, #ffb20d, #f74113);
+                border-radius: 10px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+            
+            .navbar button:hover {
+                background-color: #ff3333;
+                transform: translateY(-3px); /* Button hover effect with upward movement */
+            }
+            
+            /* Header Styling */
+            header {
+                margin-top: 100px;
+                text-align: center;
+                opacity: 0;
+                animation: fadeIn 1s ease-out 1.5s forwards;
+            }
+            
+            header h1 {
+                font-size: 36px;
+                color: #333;
+                font-weight: bold;
+                animation: slideInFromBottom 1s ease-out forwards;
+            }
+
+     /* Slider Styling */
+     .slider {
+            position: relative;
+            max-width: 600px; /* Adjust as needed */
+            margin-left: 20px; /* Center the slider */
+            overflow: hidden;
+            align-items: start;
+            border-radius: 10px; /* Optional: rounded corners */
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: shadow effect */
+        }
+
+        .slide img {
+            width: 100%;
+            border-radius: 10px; /* Optional: rounded corners for images */
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+            /* Animations */
+            
+            /* Navbar slide-in effect */
+            @keyframes slideInNavbar {
+                0% {
+                transform: translateY(-100%);
+                opacity: 0;
+                }
+                100% {
+                transform: translateY(0);
+                opacity: 1;
+                }
+            }
+            
+            /* Logo rotation animation */
+            @keyframes rotateLogo {
+                0% {
+                transform: rotate(0deg);
+                }
+                100% {
+                transform: rotate(360deg);
+                }
+            }
+            
+            /* Slide-in animation for site name and user email */
+            @keyframes slideInFromLeft {
+                0% {
+                transform: translateX(-100%);
+                opacity: 0;
+                }
+                100% {
+                transform: translateX(0);
+                opacity: 1;
+                }
+            }
+            
+            /* Slide-in animation for header */
+            @keyframes slideInFromBottom {
+                0% {
+                transform: translateY(50px);
+                opacity: 0;
+                }
+                100% {
+                transform: translateY(0);
+                opacity: 1;
+                }
+            }
+            
+            /* Fade-in animation */
+            @keyframes fadeIn {
+                0% {
+                opacity: 0;
+                }
+                100% {
+                opacity: 1;
+                }
+            }
+            
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .navbar {
+                flex-direction: column;
+                align-items: center;
+                }
+            
+                .nav-links {
+                flex-direction: column;
+                gap: 15px;
+                margin-top: 10px;
+                }
+            
+                header h1 {
+                font-size: 28px;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .navbar {
+                padding: 10px 20px;
+                }
+            
+                .nav-links a {
+                padding: 8px 16px;
+                font-size: 14px;
+                }
+            
+                .navbar button {
+                padding: 8px 16px;
+                font-size: 14px;
+                }
+            
+                header h1 {
+                font-size: 24px;
+                }
+            }
+    
+        </style>
+    </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="logo-section">
+            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Website Logo" class="logo">
+            <span class="site-name">StockoDictor</span>
+            <span id="user-email">Welcome</span> 
+            <h2 id="greet" class="ms-4"></h2>
+        </div>
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}" class="">Home</a>
+            <a href="{{ url_for('dashboard') }}" class="">Dashboard</a>
+            <a href="{{ url_for('about') }}" class="">About Us</a>
+            <button class="btn btn-outline-success" type="button" id="signoutbutton">Sign Out</button>
+        </div>
+        
+        
+    </nav>
+    <div class="slider">
+        <div class="slides">
+            <div class="slide fade">
+                <img src="{{ url_for('static', filename='images/stock1.jpg') }}" alt="Image 1">
+            </div>
+            <div class="slide fade">
+                <img src="{{ url_for('static', filename='images/stock2.jpg') }}" alt="Image 2">
+            </div>
+            <div class="slide fade">
+                <img src="{{ url_for('static', filename='images/stock3.jpg') }}" alt="Image 3">
+            </div>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+
+      
+
+    <script>
+        let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+        let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
+
+
+        let MsgHead = document.getElementById("msg");
+        let GreetHead = document.getElementById("greet");
+        let SignoutBtn = document.getElementById("signoutbutton");
+
+
+
+        let Signout = ()=>{
+            sessionStorage.removeItem("user-creds");
+            sessionStorage.removeItem("user-info");
+            window.location.href = "{{ url_for('login') }}"
+        }
+
+        let CheckCred = ()=>{
+            if (!sessionStorage.getItem("user-creds"))
+            window.location.href = "{{ url_for('login') }}"
+            
+            else{
+                MsgHead.innerText = `user with email "${UserCreds.email}" logged in`;
+                GreetHead.innerText = ` ${UserInfo.firstname + " " + UserInfo.lastname}`;
+            }
+        }
+
+        window.addEventListener('load', CheckCred);
+        SignoutBtn.addEventListener('click', Signout);
+
+
+
+        let slideIndex = 0;
+        showSlides();
+
+        function plusSlides(n) {
+            slideIndex += n;
+            showSlides();
+        }
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            if (slideIndex >= slides.length) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = slides.length - 1; }
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex].style.display = "block";  
+        }
+
+
+    </script>
+
+    
+  </body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home - StockoDictor</title>
+    <style>
+      /* Reset default styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      /* Body Styling */
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #a9cff5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #5f90c2, #b8d5ff);
+        min-height: 100vh;
+        padding: 20px;
+      }
+      
+      /* New Navbar Styling */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: transparent;
+        z-index: 100;
+      }
+      
+      .navbar .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      
+      .navbar .logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        animation: rotateLogo 3s linear infinite;
+      }
+      
+      .navbar .site-name {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px 20px;
+        border-radius: 30px;
+        align-items: center;
+      }
+      
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        transition: transform 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        transform: scale(1.1);
+      }
+      
+      .nav-links button {
+        background: linear-gradient(135deg, #ffb20d, #f74113);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.3s ease;
+      }
+      
+      .nav-links button:hover {
+        background: #ff3333;
+        transform: translateY(-3px);
+      }
+      
+      @keyframes rotateLogo {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      
+      /* Header Styling (Baaki page ka content) */
+      header {
+        margin-top: 100px;
+        text-align: center;
+      }
+      
+      header h1 {
+        font-size: 36px;
+        color: #333;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- New Navbar HTML Section -->
+    <!-- <nav class="navbar">
+      <div class="logo-section">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="logo">
+        <span class="site-name">Kimera</span>
+      </div>
+      <div class="nav-links">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <button type="button" id="signoutbutton">Sign Out</button>
+      </div>
+    </nav> -->
+    
+    <!-- Page Content -->
+    <!-- <header>
+      <h1>Welcome to StockoDictor</h1>
+    </header> -->
+    
+    <!-- JavaScript for Sign Out functionality -->
+    <!-- <script>
+      let SignoutBtn = document.getElementById("signoutbutton");
+      let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+      let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
+      
+      let Signout = () => {
+        sessionStorage.removeItem("user-creds");
+        sessionStorage.removeItem("user-info");
+        window.location.href = "{{ url_for('login') }}";
+      };
+
+      let CheckCred = () => {
+        if (!sessionStorage.getItem("user-creds"))
+          window.location.href = "{{ url_for('login') }}";
+      };
+
+      window.addEventListener('load', CheckCred);
+      SignoutBtn.addEventListener('click', Signout);
+    </script>
+  </body>
+</html> --> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home - StockoDictor</title>
+    <style>
+      /* Reset default styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      /* Body Styling */
+      body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #5f90c2, #b8d5ff);
+        min-height: 100vh;
+        padding: 20px;
+      }
+      
+      /* New Navbar Styling */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: transparent;
+        z-index: 100;
+      }
+      
+      .navbar .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      
+      .navbar .logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        animation: rotateLogo 3s linear infinite;
+      }
+      
+      .navbar .site-name {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+      }
+      
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px 20px;
+        border-radius: 30px;
+        align-items: center;
+      }
+      
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        transition: transform 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        transform: scale(1.1);
+      }
+      
+      .nav-links button {
+        background: linear-gradient(135deg, #ffb20d, #f74113);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.3s ease;
+      }
+      
+      .nav-links button:hover {
+        background: #ff3333;
+        transform: translateY(-3px);
+      }
+      
+      @keyframes rotateLogo {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <-- Navbar Section -->
+    <!-- <nav class="navbar">
+      <div class="logo-section">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="logo">
+        <span class="site-name">StockoDictor</span>
+      </div>
+      <div class="nav-links">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <button type="button" id="signoutbutton">Sign Out</button>
+      </div>
+    </nav> -->
+    
+    <!-- Clean Page Content (Slider and stock images removed) -->
+    
+    <!-- JavaScript for Sign-Out functionality -->
+    <!-- <script>
+      let SignoutBtn = document.getElementById("signoutbutton");
+
+      let Signout = () => {
+        sessionStorage.removeItem("user-creds");
+        sessionStorage.removeItem("user-info");
+        window.location.href = "{{ url_for('login') }}";
+      };
+
+      SignoutBtn.addEventListener('click', Signout);
+    </script>
+  </body>
+</html>  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home - StockoDictor</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      /* Original Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #5f90c2, #b8d5ff);
+        min-height: 100vh;
+        padding: 20px;
+      }
+      
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: transparent;
+        z-index: 1000;
+      }
+      
+      .navbar .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      
+      .navbar .logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        animation: auto 3s linear infinite;
+      }
+      
+      .navbar .site-name {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+      }
+      
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px 20px;
+        border-radius: 30px;
+        align-items: center;
+      }
+      
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        transition: transform 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        transform: scale(1.1);
+      }
+      
+      .nav-links button {
+        background: linear-gradient(135deg, #ffb20d, #f74113);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.3s ease;
+      }
+      
+      .nav-links button:hover {
+        background: #ff3333;
+        transform: translateY(-3px);
+      }
+
+      /* Market Status Bar */
+      .market-status {
+        background: #1a1a1a;
+        color: white;
+        padding: 1rem 0;
+        position: absolute;
+        top: 80px;
+        z-index: 999;
+        width: 97%;
+        margin-top: 10px;
+        border-bottom: 10px solid transparent;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 10px solid #1a1a1a;
+        overflow: hidden; /* Hide overflow */
+      }
+
+      /* Stock Ticker */
+      .stock-ticker {
+        display: flex;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        overflow: hidden; /* Hide overflow */
+      }
+
+      .stock-item {
+        padding-right: 50px; /* Space between items */
+      }
+      
+      /* Hero Section */
+      .hero-section {
+        margin-top: 200px;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                    url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3') center/cover;
+        height: 100vh;
+        color: white;
+        display: flex;
+        align-items: center;
+        border-radius: 20px;
+        padding-top: 80px;
+        width: 100%;
+      }
+      
+      .hero-section .container {
+        max-width: 1200px;
+      }
+
+      .feature-icon, .data-point h3 {
+        color: #4CAF50;
+      }
+
+      /* Hover Animation for Cards */
+      .card, .news-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover, .news-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      }
+
+
+
+     
+
+
+      /* Hero Section Text Styling */
+.hero-section h1 {
+    font-size: 3.5rem; /* Increased font size */
+}
+
+.hero-section .lead {
+    font-size: 1.5rem; /* Increased font size for subtext */
+}
+
+.hero-section .text-muted {
+    font-size: 1.1rem; /* Slightly larger text for trust indicators */
+}
+
+.hero-section .features h5 {
+    font-size: 1.25rem; /* Increased font size for feature headings */
+}
+
+.hero-section .btn {
+    font-size: 1.2rem; /* Larger font size for button text */
+}
+
+
+
+
+
+
+    </style>
+  </head>
+  <body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+      <div class="logo-section">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="logo">
+        <span class="site-name">StockoDictor</span>
+      </div>
+      <div class="nav-links">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('about') }}">Contacts</a>
+        <button type="button" id="signoutbutton">Sign Out</button>
+      </div>
+    </nav>
+
+    <!-- Market Status Bar -->
+    <div class="market-status">
+      <div class="container">
+        <div class="stock-ticker">
+          <span class="stock-item">NIFTY 50: 24,450.90 <span class="text-success">↑ 1.2%</span></span>
+          <span class="stock-item">NIFTY NEXT 50: 63,503.80 <span class="text-success">↓ 0.62%</span></span>
+          <span class="stock-item">NIFTY BANK: 49,506.01 <span class="text-success">↓ 1.2%</span></span>
+          <span class="stock-item">SENSEX: 65,200.15 <span class="text-success">↑ 0.8%</span></span>
+          <span class="stock-item">USD/INR: 82.95 <span class="text-danger">↓ 0.3%</span></span>
+          <span class="stock-item">NIFTY MIDCAP SELECT : 11,864.90 <span class="text-success">↓ 0.97%</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <!-- <section class="hero-section">
+      <div class="container text-center">
+        <h1 class="display-4 mb-4">AI-Powered Stock Market Predictions</h1>
+        <p class="lead mb-4">Harness the power of machine learning to predict market trends with 85%+ accuracy</p>
+        <a href="#" class="btn btn-success btn-lg">Start Free Trial</a>
+      </div>
+    </section> -->
+
+    <section class="hero-section">
+      <div class="container text-center">
+          <h1 class="display-4 mb-3">Unlock Smarter Stock Market Predictions with AI</h1>
+          <p class="lead mb-3">Leverage the power of advanced AI algorithms to get accurate stock market forecasts and make data-driven investment decisions.</p>
+          
+          <p class="text-muted mb-4">
+              📈 90%+ Accuracy | 🔍 Real-time Market Analysis | 🔥 Trusted by 50,000+ Investors | 📊 Predict Stock Movements with Precision
+          </p>
+          
+          <div class="features mb-4">
+              <div class="row">
+                  <div class="col-md-4">
+                      <h5>AI-Powered Insights</h5>
+                      <p>Our AI models analyze historical data, news, and market trends to provide accurate predictions, ensuring you stay ahead of the curve.</p>
+                  </div>
+                  <div class="col-md-4">
+                      <h5>Real-Time Data</h5>
+                      <p>Access live market updates and trends, empowering you to make informed decisions with the most up-to-date information available.</p>
+                  </div>
+                  <div class="col-md-4">
+                      <h5>Personalized Recommendations</h5>
+                      <p>Receive stock recommendations tailored to your investment goals, risk tolerance, and market outlook, all based on data-driven analysis.</p>
+                  </div>
+              </div>
+          </div>
+  
+          <p class="lead mb-3">
+              Whether you're a beginner or an experienced investor, our platform helps you navigate the complexities of the stock market with confidence.
+          </p>
+          
+          <a href="{{ url_for('dashboard') }}" class="btn btn-primary btn-lg">Start Your Free Trial</a>
+          <p class="mt-4 text-muted">No credit card required | Start analyzing stocks in minutes</p>
+      </div>
+  </section>
+  
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-5">Why Choose StockoDictor?</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card text-center p-4">
+              <i class="fas fa-brain feature-icon fa-3x mb-3"></i>
+              <h3>AI Predictions</h3>
+              <p>Deep learning algorithms analyze market trends</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card text-center p-4">
+              <i class="fas fa-bolt feature-icon fa-3x mb-3"></i>
+              <h3>Real-time Analysis</h3>
+              <p>Instant updates based on live market data</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card text-center p-4">
+              <i class="fas fa-shield-alt feature-icon fa-3x mb-3"></i>
+              <h3>Risk Management</h3>
+              <p>Smart portfolio protection tools</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <!-- Latest Market News Section -->
+<section id="news" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Latest Market News</h2>
+    <div class="row g-4">
+      <!-- News Card 1 -->
+      <!-- <div class="col-md-4">
+        <div class="card text-center p-4 d-flex flex-column h-100">
+          <img src="/Static/images/news_image1.jpg" class="card-img-top" alt="Market News" style="height: 200px; object-fit: cover;">
+          <h5 class="mt-3">Mukesh Ambani unveils $10 billion renewable energy plan</h5>
+          <a href="https://www.livemint.com/market/stock-market-news/latest-stock-market-news-on-february-2-2025-live-updates-11738454421968.html" class="btn btn-link" target="_blank">News</a>
+        </div>
+      </div> -->
+
+
+      <!-- News Card 1 -->
+      <div class="col-md-4">
+        <div class="card text-center p-4 d-flex flex-column h-100">
+          <!-- Image Preview -->
+          <img id="newsImagePreview1" src="/static/images/news_image1.jpg" class="card-img-top" alt="Market News" style="height: 200px; object-fit: cover;">
+          <h5 class="mt-3">Mukesh Ambani unveils $10 billion renewable energy plan</h5>
+          <a href="https://www.livemint.com/market/stock-market-news/latest-stock-market-news-on-february-2-2025-live-updates-11738454421968.html" class="btn btn-link" target="_blank">News</a>
+        </div>
+      </div>
+
+
+
+      <!-- News Card 2 -->
+      <div class="col-md-4">
+        <div class="card text-center p-4 d-flex flex-column h-100">
+          <!-- Image Preview -->
+          <img id="newsImagePreview1" src="/static/images/news_image2.jpg" class="card-img-top" alt="Market News" style="height: 200px; object-fit: cover;">
+          <h5 class="mt-3">Budget 2025 Highlights: Middle Class’ Tax Win To Consumption Second Wind, Key Takeaways From FM Speech</h5>
+          <a href="https://www.ndtvprofit.com/budget/union-budget-2025-live-updates-nirmala-sitharaman-speech-income-tax-slab-latest-news" class="btn btn-link" target="_blank">News</a>
+        </div>
+      </div>
+
+      <!-- News Card 3 -->
+      <div class="col-md-4">
+        <div class="card text-center p-4 d-flex flex-column h-100">
+          <!-- Image Preview -->
+          <img id="newsImagePreview1" src="/static/images/news_image3.jpg" class="card-img-top" alt="Market News" style="height: 200px; object-fit: cover;">
+          <h5 class="mt-3">Nvidia, energy stocks: DeepSeek AI triggers market sell-off; time to worry?</h5>
+          <a href="https://www.business-standard.com/markets/news/nvidia-energy-stocks-deepseek-ai-triggers-market-sell-off-time-to-worry-125012800268_1.html">News</a>
+        </div>
+      </div>
+
+      <!-- News Card 4 -->
+      <div class="col-md-4">
+        <div class="card text-center p-4 d-flex flex-column h-100">
+          <!-- Image Preview -->
+          <img id="newsImagePreview1" src="/static/images/news_image4.jpg" class="card-img-top" alt="Market News" style="height: 200px; object-fit: cover;">
+          <h5 class="mt-3">Budget 2025: Stock markets open on Saturday, Feb 1; check NIFTY50 performance on Budget days since 2014</h5>
+          <a href="https://upstox.com/news/business-news/latest-updates/budget-2025-on-saturday-february-1-a-look-at-market-performance-on-budget-days-since-2014/article-143237/" class="btn btn-link" target="_blank">News</a>
+        </div>
+      </div>
+
+      <!-- News Card 5 -->
+      <div class="col-md-4">
+        <div class="card text-center p-4 d-flex flex-column h-100">
+          <!-- Image Preview -->
+          <img id="newsImagePreview1" src="/static/images/news_image5.jpg" class="card-img-top" alt="Market News" style="height: 200px; object-fit: cover;">
+          <h5 class="mt-3">Auto stocks rally as budget boosts EV adoption with Solar PV cells and battery ecosystem</h5>
+          <a href="https://www.moneycontrol.com/budget/auto-stocks-rally-as-budget-boosts-ev-adoption-with-solar-pv-and-battery-ecosystem-article-12925996.html" class="btn btn-link" target="_blank">News</a>
+        </div>
+      </div>
+
+      <!-- News Card 6 -->
+      <div class="col-md-4">
+        <div class="card text-center p-4 d-flex flex-column h-100">
+          <!-- Image Preview -->
+          <img id="newsImagePreview1" src="/static/images/news_image6.jpg" class="card-img-top" alt="Market News" style="height: 200px; object-fit: cover;">
+          <h5 class="mt-3">DeepSeek decoded: 5 myths and realities about the Chinese AI startup’s rise</h5>
+          <a href="https://indianexpress.com/article/explained/explained-sci-tech/deepseek-decoded-98121340/" class="btn btn-link" target="_blank">News</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+      <div class="container text-center">
+        <p>&copy; 2025 StockoDictor. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Original Signout Script
+      let SignoutBtn = document.getElementById("signoutbutton");
+      let Signout = () => {
+        sessionStorage.removeItem("user-creds");
+        sessionStorage.removeItem("user-info");
+        window.location.href = "{{ url_for('login') }}";
+      };
+      SignoutBtn.addEventListener('click', Signout);
+
+      // Ticker Animation with Looping Effect
+      function animateTicker() {
+        const ticker = document.querySelector('.stock-ticker');
+        ticker.innerHTML += ticker.innerHTML; // Duplicate the content to create a loop effect
+        
+        // Animation for scrolling ticker from right to left
+        ticker.animate([
+          { transform: 'translateX(0)' },
+          { transform: `translateX(-${ticker.scrollWidth / 2}px)` }
+        ], {
+          duration: 30000, // Adjust the speed as needed
+          iterations: Infinity // Infinite loop
+        });
+      }
+      animateTicker();
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

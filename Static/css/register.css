@@ -1,0 +1,244 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #5f90c2, #b8d5ff);
+    color: #333;
+    padding: 20px;
+  }
+  
+  /* Navbar Styling */
+  .navbar {
+    width: 100%;
+    background-color: #007bff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    animation: slideInNavbar 1s ease-out forwards;
+  }
+  
+  /* Logo Section */
+  .navbar .logo-section {
+    display: flex;
+    margin-left: 15px;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .navbar .logo {
+    width: 60px;
+    height: auto;
+    border-radius: 40px;
+    animation: rotateLogo 2s linear infinite; /* Continuous logo rotation */
+  }
+  
+  .navbar .site-name {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: slideInFromLeft 1s ease-out forwards;
+  }
+  
+  /* Navigation Links */
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    border-radius: 15px;
+    padding: 10px;
+    margin-right: 15px;
+    align-items: center;
+    background-color: #f0f4f8;
+    animation: fadeIn 1s ease-in-out 1s forwards; /* Fade-in effect with delay */
+  }
+  
+  .nav-links a {
+    color: #008bfd;
+    background-color: #f0f4f8;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    transform: scale(1.1); /* Hover effect with scaling */
+    color: #ffcc00; /* Change text color on hover */
+  }
+  
+  /* Form Container */
+  .form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin-top: 100px; /* Ensure space below the navbar */
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+  }
+  
+  h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    animation: textWave 1.5s ease-in-out infinite;
+  }
+  
+  label {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  input:focus {
+    border-color: #63a9f0;
+    transform: scale(1.05);
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  .existing-account {
+    margin-top: 20px;
+  }
+  
+  .existing-account p {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .link-btn {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .link-btn:hover {
+    color: #0056b3;
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes textWave {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-10px);
+    }
+  }
+
+  /* Navbar sliding animation */
+  @keyframes slideInNavbar {
+    0% {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Logo rotation animation */
+  @keyframes rotateLogo {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Pulse effect on hover */
+  @keyframes pulseEffect {
+    0% {
+      transform: scale(1.1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+  
+  /* Slide-in from left for site name */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

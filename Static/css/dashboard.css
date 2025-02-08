@@ -1,0 +1,273 @@
+Reset default styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Styling for the body */
+  body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #5b98ee, #b5e0fc);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+   /* Navbar Styling */
+   .navbar {
+    width: 100%;
+    background-color: #007bff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    animation: slideInNavbar 1s ease-out forwards;
+  }
+  
+  /* Logo Section */
+  .navbar .logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 15px;
+  }
+  
+  .navbar .logo {
+    width: 60px;
+    height: auto;
+    border-radius: 40px;
+    animation: rotateLogo 2s linear infinite; /* Continuous logo rotation */
+  }
+  
+  .navbar .site-name {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: slideInFromLeft 1s ease-out forwards;
+  }
+  
+  
+  /* Navigation Links */
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    border-radius: 15px;
+    padding: 10px;
+    align-items: center;
+    background-color: #f0f4f8;
+    animation: fadeIn 1s ease-in-out 1s forwards; /* Fade-in effect with delay */
+  }
+  
+  .nav-links a {
+    color: #008bfd;
+    background-color: #f0f4f8;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    transform: scale(1.1); /* Hover effect with scaling */
+    color: #ffcc00; /* Change text color on hover */
+  }
+  /* Dashboard Section */
+  #dashboard {
+    width: 90%;
+    max-width: 600px;
+    margin-top: 100px;
+    animation: fadeInUp 1s ease-in-out;
+    
+  }
+  
+  .dashboard-title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    color: #ff5100;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: zoomIn 1s ease-in-out;
+  }
+  
+  .dashboard-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    background-color: #008bfd;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    animation: bounceIn 1s ease-out;
+  }
+  
+  /* Search Bar Styling */
+  .search-bar-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  #searchInput {
+    flex: 1;
+    padding: 15px;
+    margin-left: 25px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  #searchInput:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  #searchButton {
+    padding: 10px 20px;
+    border: none;
+    margin-right: 25px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #ffb20d, #f74113);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  #searchButton:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Results Container */
+  #resultsContainer {
+    background-color: white; 
+    padding: 10px; 
+    margin: auto;
+    margin-top: 20px; 
+    width: 90%; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    min-height: 300px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+  
+  /* Animations */
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Fade-in-up animation */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Slide-in from left animation */
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Logo rotation animation */
+  @keyframes rotateLogo {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Zoom-in animation */
+  @keyframes zoomIn {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Bounce-in animation */
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.9;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .dashboard-title {
+      font-size: 28px;
+    }
+  
+    .search-bar-container {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .dashboard-title {
+      font-size: 24px;
+    }
+  
+    #searchButton {
+      font-size: 16px;
+    }
+  }
+  
+  /* Slide-in animation for the navbar */
+  @keyframes slideInNavbar {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }

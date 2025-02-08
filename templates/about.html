@@ -1,0 +1,908 @@
+<!-- <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Us</title>
+        <link rel="stylesheet" href="/static/css/about.css">
+        <style>
+          /* Global Reset */
+          * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+            
+            /* Body Styling */
+            body {
+              font-family: 'Arial', sans-serif;
+              background-color: #f8f9fa;
+              background: linear-gradient(135deg, #5f90c2, #b8d5ff);
+              padding-top: 0;
+              overflow-x: hidden;
+              height: 110px;
+            }
+            
+            /* Navbar Styling */
+            .navbar {
+              width: 100%;
+              background-color: #007bff;
+              padding: 10px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              position: fixed;
+              top: 0;
+              left: 0;
+              z-index: 10;
+              animation: slideInNavbar 1s ease-out forwards;
+            }
+            
+            /* Logo Section */
+            .navbar .logo-section {
+              display: flex;
+              align-items: center;
+              gap: 15px;
+              margin-left: 15px;
+            }
+            
+            .navbar .logo {
+              width: 60px;
+              height: auto;
+              border-radius: 40px;
+              animation: rotateLogo 2s linear infinite; /* Continuous logo rotation */
+            }
+            
+            .navbar .site-name {
+              color: #fff;
+              font-size: 24px;
+              font-weight: bold;
+              text-transform: uppercase;
+              animation: slideInFromLeft 1s ease-out forwards;
+            }
+            
+            .navbar #user-email {
+              color: #fff;
+              font-size: 18px;
+              font-weight: normal;
+              animation: slideInFromLeft 1s ease-out 0.5s forwards; /* Delay animation */
+            }
+            
+            /* Navigation Links */
+            .nav-links {
+              display: flex;
+              gap: 20px;
+              border-radius: 15px;
+              padding: 10px;
+              align-items: center;
+              background-color: #f0f4f8;
+              animation: fadeIn 1s ease-in-out 1s forwards; /* Fade-in effect with delay */
+            }
+            
+            .nav-links a {
+              color: #008bfd;
+              background-color: #f0f4f8;
+              text-decoration: none;
+              font-size: 16px;
+              padding: 10px;
+              transition: transform 0.3s ease, color 0.3s ease;
+            }
+            
+            .nav-links a:hover {
+              transform: scale(1.1); /* Hover effect with scaling */
+              color: #ffcc00; /* Change text color on hover */
+            }
+            /* About Section */
+            .about-section {
+              padding: 100px 20px;
+              text-align: center;
+              margin-top: 0px;
+              opacity: 0;
+              animation: fadeIn 1s ease-out 1s forwards;
+            }
+            
+            .about-section .container {
+              max-width: 1200px;
+              margin: 0 auto;
+            }
+            
+            .about-description {
+              font-size: 18px;
+              margin: 20px 0;
+              color: #555;
+              opacity: 0;
+              animation: fadeInFromBottom 1s ease-out 1.5s forwards;
+            }
+            
+            .mission {
+              margin-top: 40px;
+            }
+            
+            .mission h2 {
+              font-size: 24px;
+              color: #007bff;
+              text-transform: uppercase;
+              letter-spacing: 2px;
+              animation: slideInFromLeft 1s ease-out forwards;
+            }
+            
+            .mission p {
+              font-size: 18px;
+              color: #555;
+              margin-top: 10px;
+            }
+            
+            .team {
+              margin-top: 60px;
+            }
+            
+            .team h2 {
+              font-size: 24px;
+              color: #007bff;
+              text-transform: uppercase;
+              animation: slideInFromRight 1s ease-out forwards;
+            }
+            
+            .team-members {
+              display: flex;
+              justify-content: center;
+              gap: 40px;
+              margin-top: 30px;
+              opacity: 0;
+              animation: fadeIn 1s ease-in-out 2s forwards;
+            }
+            
+            .team-member {
+              text-align: center;
+              transition: transform 0.3s ease;
+            }
+            
+            .team-member:hover {
+              transform: translateY(-10px);
+            }
+            
+            .team-member img {
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              object-fit: cover;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+              transition: box-shadow 0.3s ease;
+            }
+            
+            .team-member img:hover {
+              box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            }
+            
+            .team-member h3 {
+              font-size: 18px;
+              color: #333;
+              margin-top: 15px;
+            }
+            
+            .team-member p {
+              font-size: 16px;
+              color: #777;
+            }
+            
+          
+            /* Footer Styling */
+            footer {
+              background-color: #343a40;
+              color: #fff;
+              text-align: center;
+              margin-top: 115px;
+            }
+            
+            /* Keyframe Animations */
+            @keyframes navbarFadeIn {
+              0% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 1;
+              }
+            }
+            
+          
+            
+            @keyframes fadeIn {
+              0% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 1;
+              }
+            }
+            
+            @keyframes fadeInFromBottom {
+              0% {
+                transform: translateY(30px);
+                opacity: 0;
+              }
+              100% {
+                transform: translateY(0);
+                opacity: 1;
+              }
+            }
+            
+          
+            
+            /* Pulse Effect on Hover */
+            @keyframes pulseEffect {
+              0% {
+                transform: scale(1.1);
+              }
+              50% {
+                transform: scale(1.05);
+              }
+              100% {
+                transform: scale(1.1);
+              }
+            }
+            /* Animations */
+            
+            /* Slide-in animation for the navbar */
+            @keyframes slideInNavbar {
+              0% {
+                transform: translateY(-100%);
+                opacity: 0;
+              }
+              100% {
+                transform: translateY(0);
+                opacity: 1;
+              }
+            }
+            
+            /* Logo rotation animation */
+            @keyframes rotateLogo {
+              0% {
+                transform: rotate(0deg);
+              }
+              100% {
+                transform: rotate(360deg);
+              }
+            }
+            
+            /* Slide-in from left for site name */
+            @keyframes slideInFromLeft {
+              0% {
+                transform: translateX(-100%);
+                opacity: 0;
+              }
+              100% {
+                transform: translateX(0);
+                opacity: 1;
+              }
+            }
+            
+            /* Slide-in from bottom for header */
+            @keyframes slideInFromBottom {
+              0% {
+                transform: translateY(50px);
+                opacity: 0;
+              }
+              100% {
+                transform: translateY(0);
+                opacity: 1;
+              }
+            }
+            /* Navbar slide-in effect */
+            @keyframes slideInNavbar {
+              0% {
+                transform: translateY(-100%);
+                opacity: 0;
+              }
+              100% {
+                transform: translateY(0);
+                opacity: 1;
+              }
+            }
+  
+  
+        </style>
+    </head>
+    <body>
+      <-- Navbar -->
+      <!-- <nav class="navbar">
+        <div class="logo-section">
+          <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Website Logo" class="logo">
+          <span class="site-name">StockoDictor</span>
+        </div>
+        <div class="nav-links">
+          <a href="{{ url_for('home') }}" class="">Home</a>
+            <a href="{{ url_for('dashboard') }}" class="">Dashboard</a>
+            <a href="{{ url_for('about') }}" class="">About Us</a>
+        </div>
+      </nav> -->
+
+      <!-- About Us Section -->
+      <!-- <section class="about-section">
+        <div class="container">
+          <h1>About Us</h1>
+          <p class="about-description">
+            We are a team of passionate individuals working together to provide the best user experience. Our goal is to revolutionize the way people interact with technology. We believe in innovation, creativity, and simplicity.
+          </p>
+
+          <div class="mission">
+            <h2>Our Mission</h2>
+            <p>Our mission is to build a more connected world by making digital tools accessible and easy to use for everyone, everywhere.</p>
+          </div>
+
+          <div class="team">
+            <h2>Meet Our Team</h2>
+            <div class="team-members">
+              <div class="team-member">
+                <img src="/images/logo.png" alt="Team Member 1" class="team-photo">
+                <h3>John Doe</h3>
+                <p>Founder & CEO</p>
+              </div>
+              <div class="team-member">
+                <img src="/images/logo.png" alt="Team Member 2" class="team-photo">
+                <h3>Jane Smith</h3>
+                <p>Chief Technology Officer</p>
+              </div>
+              <div class="team-member">
+                <img src="/images/logo.png" alt="Team Member 3" class="team-photo">
+                <h3>Mark Johnson</h3>
+                <p>Lead Developer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+      <!-- Footer -->
+      <!-- <footer>
+        <p>&copy; 2024 Our Website. All rights reserved.</p>
+      </footer>
+
+    </body>
+  </html> --> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts- StockoDictor</title>
+    <style>
+      /* Global Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      /* Body Styling */
+      body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #5f90c2, #b8d5ff);
+        min-height: 90vh;
+        padding: 0px;
+        overflow-x: hidden;
+      }
+      
+      /* New Navbar Styling (Same as Home page) */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: transparent;
+        z-index: 100;
+        animation: slideInNavbar 1s ease-out forwards;
+      }
+      
+      .navbar .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      
+      .navbar .logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        animation: auto 3s linear infinite;
+      }
+      
+      .navbar .site-name {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+        animation: slideInFromLeft 1s ease-out forwards;
+      }
+      
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px 20px;
+        border-radius: 30px;
+        align-items: center;
+        animation: fadeIn 1s ease-in-out 1s forwards;
+      }
+      
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 10px;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        transform: scale(1.1);
+        color: #ffcc00;
+      }
+      
+      /* About Us Section */
+      .about-section {
+        padding: 100px 20px;
+        text-align: center;
+        opacity: 0;
+        animation: fadeIn 1s ease-out 1s forwards;
+      }
+      
+      .about-section .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .about-section h1 {
+        font-size: 36px;
+        color: #fff;
+        margin-bottom: 20px;
+      }
+      
+      .about-description {
+        font-size: 18px;
+        margin: 20px 0;
+        color: #fff;
+        opacity: 0;
+        animation: fadeInFromBottom 1s ease-out 1.5s forwards;
+      }
+      
+      .mission {
+        margin-top: 40px;
+      }
+      
+      .mission h2 {
+        font-size: 24px;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        animation: slideInFromLeft 1s ease-out forwards;
+      }
+      
+      .mission p {
+        font-size: 18px;
+        color: #fff;
+        margin-top: 10px;
+      }
+      
+      .team {
+        margin-top: 60px;
+      }
+      
+      .team h2 {
+        font-size: 24px;
+        color: #fff;
+        text-transform: uppercase;
+        animation: slideInFromRight 1s ease-out forwards;
+      }
+      
+      .team-members {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 30px;
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out 2s forwards;
+      }
+      
+      .team-member {
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+      
+      .team-member:hover {
+        transform: translateY(-10px);
+      }
+      
+      .team-member img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.3s ease;
+      }
+      
+      .team-member img:hover {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+      
+      .team-member h3 {
+        font-size: 18px;
+        color: #fff;
+        margin-top: 15px;
+      }
+      
+      .team-member p {
+        font-size: 16px;
+        color: #fff;
+      }
+      
+      /* Footer Styling */
+      footer {
+        background-color: #343a40;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        margin-top: 50px;
+
+      }
+      
+      /* Keyframe Animations */
+      @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+      
+      @keyframes fadeInFromBottom {
+        0% { transform: translateY(30px); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+      }
+      
+      @keyframes slideInFromLeft {
+        0% { transform: translateX(-100%); opacity: 0; }
+        100% { transform: translateX(0); opacity: 1; }
+      }
+      
+      @keyframes slideInFromRight {
+        0% { transform: translateX(100%); opacity: 0; }
+        100% { transform: translateX(0); opacity: 1; }
+      }
+      
+      @keyframes slideInNavbar {
+        0% { transform: translateY(-100%); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+      }
+      
+      @keyframes rotateLogo {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>-->
+    <!-- Navbar -->
+    <!-- <nav class="navbar">
+      <div class="logo-section">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Website Logo" class="logo">
+        <span class="site-name">StockoDictor</span>
+      </div>
+      <div class="nav-links">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('about') }}">Contacts</a>
+      </div>
+    </nav> -->
+    
+    <!-- About Us Section -->
+    <!-- <section class="about-section">
+      <div class="container">
+        <h1>Contact</h1>
+        <p class="about-description">
+          We are a team of passionate individuals working together to provide the best user experience. Our goal is to revolutionize the way people interact with technology. We believe in innovation, creativity, and simplicity.
+        </p>
+        
+        <div class="mission">
+          <h2>Our Mission</h2>
+          <p>Our mission is to build a more connected world by making digital tools accessible and easy to use for everyone, everywhere.</p>
+        </div>
+        
+        <div class="team">
+          <h2>Meet Our Team</h2>
+          <div class="team-members">
+            <div class="team-member">
+              <img src="/images/logo.png" alt="Team Member 1" class="team-photo">
+              <h3>John Doe</h3>
+              <p>Founder & CEO</p>
+            </div>
+            <div class="team-member">
+              <img src="/images/logo.png" alt="Team Member 2" class="team-photo">
+              <h3>Jane Smith</h3>
+              <p>Chief Technology Officer</p>
+            </div>
+            <div class="team-member">
+              <img src="/images/logo.png" alt="Team Member 3" class="team-photo">
+              <h3>Mark Johnson</h3>
+              <p>Lead Developer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <-- Footer -->
+    <!-- <footer>
+      <p>&copy; 2025 Our Website. All rights reserved.</p>
+    </footer>
+  </body>
+</html>  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - StockoDictor</title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #5f90c2, #b8d5ff);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            z-index: 100;
+            animation: slideInNavbar 1s ease-out forwards;
+        }
+
+        .navbar .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            animation: auto 3s linear infinite;
+        }
+
+        .navbar .site-name {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #fff;
+            animation: slideInFromLeft 1s ease-out forwards;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            align-items: center;
+            animation: fadeIn 1s ease-in-out 1s forwards;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            transform: scale(1.1);
+            color: #ffcc00;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px 0;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            background: white;
+            padding: 45px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+            text-align: center; /* ✅ Center Everything */
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #5f90c2;
+        }
+
+        .contact-form button {
+            background: #5f90c2;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 20px auto; /* ✅ Centered */
+        }
+
+        .contact-form button:hover {
+            background: #4c78a8;
+        }
+
+        .company-info {
+            margin-top: 30px;
+            text-align: center; /* ✅ Center Contact Info */
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            margin-top: 20px;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideInNavbar {
+            0% { transform: translateY(-100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-section">
+            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Website Logo" class="logo">
+            <span class="site-name">StockoDictor</span>
+        </div>
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('about') }}">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <h1>Get in Touch</h1>
+            <p>Have any questions? We'd love to hear from you!</p>
+
+            <form class="contact-form">
+                <input type="text" placeholder="Your Full Name" required>
+                <input type="email" placeholder="Your Email Address" required>
+                <textarea placeholder="Write your message here..." rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+            <div class="company-info">
+                <h2>Contact Information</h2>
+                <p>Office Address: 456, Tech Avenue, Mumbai, India</p>
+                <p>Email: contact@stockodictor.com</p>
+                <p>Phone: +91 9876543211</p>
+            </div>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.153923212415!2d72.83328271534317!3d18.922000987163107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce0888a20a09%3A0x3b2ef50a2928b9fa!2sGateway%20Of%20India%2C%20Apollo%20Bunder%2C%20Colaba%2C%20Mumbai%2C%20Maharashtra%20400001%2C%20India!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 StockoDictor. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

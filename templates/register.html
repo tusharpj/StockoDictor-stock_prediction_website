@@ -1,0 +1,691 @@
+<!-- <!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Register</title>
+        <style>
+            /* General Reset */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            /* Body Styling */
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f0f2f5;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 110vh;
+                background: linear-gradient(135deg, #5f90c2, #b8d5ff);
+                color: #333;
+                padding: 20px;
+            }
+            
+            /* Navbar Styling */
+            .navbar {
+                width: 100%;
+                background-color: #007bff;
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 10;
+                animation: slideInNavbar 1s ease-out forwards;
+            }
+            
+            /* Logo Section */
+            .navbar .logo-section {
+                display: flex;
+                margin-left: 15px;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .navbar .logo {
+                width: 60px;
+                height: auto;
+                border-radius: 40px;
+                animation: rotateLogo 2s linear infinite; /* Continuous logo rotation */
+            }
+            
+            .navbar .site-name {
+                color: #fff;
+                font-size: 24px;
+                font-weight: bold;
+                text-transform: uppercase;
+                animation: slideInFromLeft 1s ease-out forwards;
+            }
+            
+            /* Navigation Links */
+            .nav-links {
+                display: flex;
+                gap: 20px;
+                border-radius: 15px;
+                padding: 10px;
+                margin-right: 15px;
+                align-items: center;
+                background-color: #f0f4f8;
+                animation: fadeIn 1s ease-in-out 1s forwards; /* Fade-in effect with delay */
+            }
+            
+            .nav-links a {
+                color: #008bfd;
+                background-color: #f0f4f8;
+                text-decoration: none;
+                font-size: 16px;
+                padding: 10px;
+                transition: transform 0.3s ease, color 0.3s ease;
+            }
+            
+            .nav-links a:hover {
+                transform: scale(1.1); /* Hover effect with scaling */
+                color: #ffcc00; /* Change text color on hover */
+            }
+            
+            /* Form Container */
+            .form-container {
+                background-color: #fff;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: 400px;
+                margin-top: 100px; /* Ensure space below the navbar */
+                text-align: center;
+                opacity: 0;
+                animation: fadeInUp 1s ease-out forwards;
+            }
+            
+            h2 {
+                font-size: 28px;
+                color: #333;
+                margin-bottom: 20px;
+                font-weight: bold;
+                animation: textWave 1.5s ease-in-out infinite;
+            }
+            
+            label {
+                display: block;
+                font-size: 16px;
+                color: #333;
+                margin-bottom: 8px;
+                text-align: left;
+            }
+            
+            input {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 2px solid #ddd;
+                border-radius: 5px;
+                font-size: 16px;
+                transition: border-color 0.3s ease, transform 0.2s ease;
+            }
+            
+            input:focus {
+                border-color: #63a9f0;
+                transform: scale(1.05);
+            }
+            
+            button {
+                width: 100%;
+                padding: 12px;
+                background-color: #007bff;
+                color: #fff;
+                font-size: 18px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+            
+            button:hover {
+                background-color: #0056b3;
+                transform: scale(1.05);
+            }
+            
+            .existing-account {
+                margin-top: 20px;
+            }
+            
+            .existing-account p {
+                font-size: 14px;
+                color: #333;
+            }
+            
+            .link-btn {
+                text-decoration: none;
+                color: #007bff;
+                font-weight: bold;
+                transition: color 0.3s ease;
+            }
+            
+            .link-btn:hover {
+                color: #0056b3;
+            }
+            
+            /* Animations */
+            @keyframes fadeInUp {
+                0% {
+                opacity: 0;
+                transform: translateY(30px);
+                }
+                100% {
+                opacity: 1;
+                transform: translateY(0);
+                }
+            }
+            
+            @keyframes slideDown {
+                0% {
+                transform: translateY(-50px);
+                opacity: 0;
+                }
+                100% {
+                transform: translateY(0);
+                opacity: 1;
+                }
+            }
+            
+            @keyframes textWave {
+                0%, 100% {
+                transform: translateX(0);
+                }
+                50% {
+                transform: translateX(-10px);
+                }
+            }
+
+            /* Navbar sliding animation */
+            @keyframes slideInNavbar {
+                0% {
+                transform: translateY(-30px);
+                opacity: 0;
+                }
+                100% {
+                transform: translateY(0);
+                opacity: 1;
+                }
+            }
+            
+            /* Logo rotation animation */
+            @keyframes rotateLogo {
+                0% {
+                transform: rotate(0deg);
+                }
+                100% {
+                transform: rotate(360deg);
+                }
+            }
+            
+            /* Pulse effect on hover */
+            @keyframes pulseEffect {
+                0% {
+                transform: scale(1.1);
+                }
+                50% {
+                transform: scale(1.05);
+                }
+                100% {
+                transform: scale(1.1);
+                }
+            }
+            
+            /* Slide-in from left for site name */
+            @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="logo-section">
+              <img src="/static/images/logo.jpg" alt="Website Logo" class="logo">
+              <span class="site-name">StockoDictor</span>
+            </div>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}" class="">Welcome</a>
+                <a href="{{ url_for('login') }}" class="">Login</a>
+             
+            </div>
+        </nav>
+        <div class="form-container">
+            <h2 class="mb-3">Register User</h2>
+            <form id="MainForm" class="w-25 m-3">
+                
+                <div class="form-floating mb-3">
+                    <label for="floatingInput">Email address</label>
+                    <input type="email" class="form-control" id="emailInp" placeholder="name@example.com">
+                    
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="floatingPassword">Password</label>
+                    <input type="password" class="form-control" id="passwordInp" placeholder="Password">
+                    
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="floatingPassword">First Name</label>
+                    <input type="text" class="form-control" id="fnameInp" placeholder="Password">
+                    
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="floatingPassword">Last Name</label>
+                    <input type="text" class="form-control" id="lnameInp" placeholder="Password">
+                    
+                </div>
+
+
+                <button type="submit" class="btn btn-primary" style="float: right;">Create New User</button>
+                <br>
+                
+            </form>
+            <br>
+            <div class="no-account">
+                <br>
+                <p>Already have an account <a href="{{ url_for('login') }}" class="link-btn">Login here!</a></p>
+            </div>
+        </div>
+
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBvIKEc36-Z5DN968LAm_BvMHISkhozv64",
+            authDomain: "stock-prediction-6e01c.firebaseapp.com",
+            projectId: "stock-prediction-6e01c",
+            storageBucket: "stock-prediction-6e01c.firebasestorage.app",
+            messagingSenderId: "82622281441",
+            appId: "1:82622281441:web:4f9c408ccda6041a2f29a0",
+            measurementId: "G-XCXWMHQMLH"
+        };
+       
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore();
+        const auth = getAuth(app);
+
+
+        let EmailInp = document.getElementById('emailInp');
+        let PassInp = document.getElementById('passwordInp');
+        let FnameInp = document.getElementById('fnameInp');
+        let LnameInp = document.getElementById('lnameInp');
+        let MainForm = document.getElementById('MainForm');
+
+        let RegisterUser = evt =>{
+            evt.preventDefault();
+
+            createUserWithEmailAndPassword(auth, EmailInp.value, PassInp.value)
+            .then(async (credentials)=>{
+                var ref = doc(db, "UserAuthList", credentials.user.uid);
+                await setDoc(ref, {
+                    firstname: FnameInp.value,
+                    lastname: LnameInp.value,
+                })
+                console.log(credentials);
+                window.location.href = "{{ url_for('login') }}"; // Change "login.html" to your login page URL
+
+            })
+            .catch((error)=>{
+                alert(error.message);
+                console.log(error.code);
+                console.log(error.message);
+            })
+        }
+
+        MainForm.addEventListener('submit', RegisterUser);
+
+
+      </script>
+  </body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register - StockoDictor</title>
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      /* Body Styling */
+      body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #5f90c2, #b8d5ff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 110vh;
+  color: #333;
+  padding: 20px;
+  overflow-y: hidden; /* Vertical scroll bar hatane ke liye */
+}
+
+      
+      /* Navbar Styling (Updated to match other pages) */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: transparent;
+        z-index: 100;
+        animation: slideInNavbar 1s ease-out forwards;
+      }
+      
+      /* Logo Section */
+      .navbar .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-left: 15px;
+      }
+      
+      .navbar .logo {
+        width: 50px;
+        height: auto;
+        border-radius: 50%;
+        animation: auto 3s linear infinite;
+      }
+      
+      .navbar .site-name {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+        animation: slideInFromLeft 1s ease-out forwards;
+      }
+      
+      /* Navigation Links */
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        border-radius: 30px;
+        padding: 10px 20px;
+        margin-right: 15px;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.2);
+        animation: fadeIn 1s ease-in-out 1s forwards;
+      }
+      
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 10px;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        transform: scale(1.1);
+        color: #ffcc00;
+      }
+      
+      /* Form Container */
+      .form-container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        margin-top: 120px; /* Ensure space below the navbar */
+        text-align: center;
+        opacity: 0;
+        animation: fadeInUp 1s ease-out forwards;
+      }
+      
+      h2 {
+        font-size: 28px;
+        color: #333;
+        margin-bottom: 26px;
+        font-weight: bold;
+        animation: textWave 1.5s ease-in-out infinite;
+      }
+      
+      label {
+        display: block;
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 8px;
+        text-align: left;
+      }
+      
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s ease, transform 0.2s ease;
+      }
+      
+      input:focus {
+        border-color: #63a9f0;
+        transform: scale(1.05);
+      }
+      
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+      
+      button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+      }
+      
+      .existing-account {
+        margin-top: 20px;
+      }
+      
+      .existing-account p {
+        font-size: 14px;
+        color: #333;
+      }
+      
+      .link-btn {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      
+      .link-btn:hover {
+        color: #0056b3;
+      }
+      
+      /* Animations */
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes slideInNavbar {
+        0% {
+          transform: translateY(-30px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      
+      @keyframes rotateLogo {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      @keyframes textWave {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(-10px); }
+      }
+      
+      @keyframes slideInFromLeft {
+        0% { transform: translateX(-100%); opacity: 0; }
+        100% { transform: translateX(0); opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo-section">
+        <img src="/static/images/logo.jpg" alt="Website Logo" class="logo">
+        <span class="site-name">StockoDictor</span>
+      </div>
+      <div class="nav-links">
+        <a href="{{ url_for('index') }}">Welcome</a>
+        <a href="{{ url_for('login') }}">Login</a>
+      </div>
+    </nav>
+    
+    <!-- Registration Form -->
+    <div class="form-container">
+      <h2>Register User</h2>
+      <form id="MainForm">
+        <div class="form-floating mb-3">
+          <label for="emailInp">Email address</label>
+          <input type="email" id="emailInp" placeholder="name@example.com">
+        </div>
+        <div class="form-floating mb-3">
+          <label for="passwordInp">Password</label>
+          <input type="password" id="passwordInp" placeholder="Password">
+        </div>
+        <div class="form-floating mb-3">
+          <label for="fnameInp">First Name</label>
+          <input type="text" id="fnameInp" placeholder="First Name">
+        </div>
+        <div class="form-floating mb-3">
+          <label for="lnameInp">Last Name</label>
+          <input type="text" id="lnameInp" placeholder="Last Name">
+        </div>
+        <button type="submit">Register</button>
+      </form>
+      <br>
+      <div class="existing-account">
+        <p>Already have an account? <a href="{{ url_for('login') }}" class="link-btn">Login here!</a></p>
+      </div>
+    </div>
+    
+    <!-- Firebase and Custom JS (Registration functionality) -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
+      import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+      import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+      const firebaseConfig = {
+          apiKey: "AIzaSyBvIKEc36-Z5DN968LAm_BvMHISkhozv64",
+          authDomain: "stock-prediction-6e01c.firebaseapp.com",
+          projectId: "stock-prediction-6e01c",
+          storageBucket: "stock-prediction-6e01c.firebasestorage.app",
+          messagingSenderId: "82622281441",
+          appId: "1:82622281441:web:4f9c408ccda6041a2f29a0",
+          measurementId: "G-XCXWMHQMLH"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const db = getFirestore();
+      const auth = getAuth(app);
+
+      let EmailInp = document.getElementById('emailInp');
+      let PassInp = document.getElementById('passwordInp');
+      let FnameInp = document.getElementById('fnameInp');
+      let LnameInp = document.getElementById('lnameInp');
+      let MainForm = document.getElementById('MainForm');
+
+      let RegisterUser = evt => {
+        evt.preventDefault();
+
+        createUserWithEmailAndPassword(auth, EmailInp.value, PassInp.value)
+          .then(async (credentials) => {
+            var ref = doc(db, "UserAuthList", credentials.user.uid);
+            await setDoc(ref, {
+              firstname: FnameInp.value,
+              lastname: LnameInp.value,
+            });
+            console.log(credentials);
+            window.location.href = "{{ url_for('login') }}";
+          })
+          .catch((error) => {
+            alert(error.message);
+            console.log(error.code);
+            console.log(error.message);
+          });
+      };
+
+      MainForm.addEventListener('submit', RegisterUser);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,212 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Basic styling for the body */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  background: linear-gradient(135deg, #5f90c2, #b8d5ff);
+  padding-top: 0px;
+}
+
+/* Navbar Styling */
+.navbar {
+  width: 100%;
+  background-color: #007bff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  animation: slideInNavbar 1s ease-out forwards;
+}
+
+/* Logo Section */
+.navbar .logo-section {
+  display: flex;
+  margin-left: 15px;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar .logo {
+  width: 60px;
+  height: auto;
+  border-radius: 40px;
+  animation: rotateLogo 2s linear infinite; /* Continuous logo rotation */
+}
+
+.navbar .site-name {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  animation: slideInFromLeft 1s ease-out forwards;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  border-radius: 15px;
+  padding: 10px;
+  margin-right: 15px;
+  align-items: center;
+  background-color: #f0f4f8;
+  animation: fadeIn 1s ease-in-out 1s forwards; /* Fade-in effect with delay */
+}
+
+.nav-links a {
+  color: #008bfd;
+  background-color: #f0f4f8;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover {
+  transform: scale(1.1); /* Hover effect with scaling */
+  color: #ffcc00; /* Change text color on hover */
+}
+
+/* Header Section */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Take the full viewport height */
+  text-align: center;
+  margin-top: 0; /* Remove default margin */
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out 1s forwards; /* Delayed fade-in for header */
+}
+
+header h1 {
+  font-size: 48px; /* Larger font for better visibility */
+  color: #333;
+  font-weight: 600;
+  animation: fadeInFromBottom 1s ease-out forwards, slideInFromRight 1s ease-out 0.5s forwards;
+}
+
+
+/* Fade-in animation for elements */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Slide-in animation for site name */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Slide-in animation for header */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Fade-in from bottom for header */
+@keyframes fadeInFromBottom {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Navbar sliding animation */
+@keyframes slideInNavbar {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Logo rotation animation */
+@keyframes rotateLogo {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pulse effect on hover */
+@keyframes pulseEffect {
+  0% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .nav-links a {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+}
